@@ -1,3 +1,7 @@
+'''
+By Mike Zinyoni
+https://github.com/mikietechie
+'''
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import json
