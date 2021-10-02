@@ -4,7 +4,7 @@ https://github.com/mikietechie
 '''
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-import json
+import json, sys
 
 
 app = Flask(__name__)
@@ -20,6 +20,9 @@ def ping():
     return jsonify({"pong": data})
 
 if __name__ == '__main__':
-    port = 8000
+    try:
+        port = int(sys.argv[1])
+    except: # value error or index error
+        port = 8000
     app.run(port=port)
     
