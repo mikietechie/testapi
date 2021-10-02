@@ -8,10 +8,14 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route("/api/ping", methods=['GET', 'POST'])
 def ping():
-    data = json.loads(request.get_json())
+    try:
+        data = json.loads(request.get_json())
+    except:
+        data = "No data!"
     print(data)
     return jsonify({"pong": data})
 
 if __name__ == '__main__':
-    app.run()
+    port = 8000
+    app.run(port=port)
     
